@@ -30,7 +30,7 @@ def main():
     # the font and background color, the padding and the text to be displayed 
     html_temp = """ 
     <div style ="background-color:yellow;padding:13px"> 
-    <h1 style ="color:black;text-align:center;">Masukkan data-data yang diperlukan  </h1> 
+    <h1 style ="color:black;text-align:center;">Masukkan data-data yang diperlukan (dalam bentuk angka)  </h1> 
     </div> 
     """
       
@@ -41,9 +41,9 @@ def main():
     # the following lines create text boxes in which the user can enter  
     # the data required to make the prediction 
     Jumlah_Tanggungan = st.number_input("Jumlah Tanggungan", 1, 4) 
-    Pendidikan_Ayah = st.number_input("Pendidikan Ayah", 1, 3) 
+    Pendidikan_Ayah = st.number_input("Pendidikan Ayah, 1=SD, 2=SLTP, 3=SLTA", 1, 3) 
     Usia_Ayah = st.number_input("Usia Ayah", 1, 100) 
-    Pendidikan_Ibu = st.number_input("Pendidikan Ibu", 1, 3)
+    Pendidikan_Ibu = st.number_input("Pendidikan Ibu, 1=SD, 2=SLTP, 3=SLTA", 1, 3)
     Usia_Ibu = st.number_input("Usia Ibu", 1, 100)
     Penghasilan = st.number_input("Penghasilan", 1, 5) 
     result ="" 
@@ -53,7 +53,7 @@ def main():
     # and store it in the variable result 
     if st.button("Predict"): 
         result = prediction(Jumlah_Tanggungan, Pendidikan_Ayah, Usia_Ayah, Pendidikan_Ibu, Usia_Ibu, Penghasilan) 
-    st.success('The output is {} (1=terlambat, 0=tepat waktu)'.format(result)) 
+    st.success('Hasil Prediksi adalah {}  ,(1=terlambat, 0=tepat waktu)'.format(result)) 
      
 if __name__=='__main__': 
     main()
